@@ -1,4 +1,4 @@
-export var people = [
+export const people = [
   {
     id: 1,
     name: "Marie",
