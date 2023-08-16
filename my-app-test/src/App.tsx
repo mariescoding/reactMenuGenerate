@@ -1,38 +1,26 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import { useState } from 'react';
-import {useGenerateMenu} from './hooks/useGenerateMenu'
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
-export const EnterInputs = () => void {
+import { useState } from "react";
+import { useGenerateMenu } from "./hooks/useGenerateMenu";
 
-  const { isPersonClicked, isMenuClicked } = useGenerateMenu;
-  
-  return(
-    
-  )
-  
-}
- 
+import { Title } from "./compoonents/Title";
+import { MenuBar } from "./compoonents/MenuBar";
+import { EnterInputs } from "./features/enterInputs/EnterInputs";
 
 const GenerateApp = () => {
   return (
     <>
+      <MenuBar />
       <Box>
-        <Container>
-
-          <Typography variant = "h2"></Typography>
-          <EnterInputs/>
+        <Container maxWidth="md" sx={{ textAlign: "center" }}>
+          <Title />
+          <EnterInputs />
         </Container>
-
       </Box>
-  </>)
-    ;
+    </>
+  );
 };
 
 export default GenerateApp;
