@@ -9,7 +9,7 @@ export const EnterInputs = () => {
 
   return (
     <Paper elevation={5} sx={{ height: "350px;" }}>
-      <Grid container spacing={2} sx={{ p: 3 }}>
+      <Grid container spacing={2} sx={{ p: 2 }}>
         <EnterPeople />
         <EnterIng />
       </Grid>
