@@ -1,14 +1,22 @@
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
+import React from "react";
+import { people } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/people.js";
 
-type Props = {
-  personName: String;
-};
-
-export const PersonButton: React.FC<Props> = ({ personName }) => {
+export const PersonButton = () => {
   return (
-    <Grid item>
-      <Chip label={personName} variant="outlined"></Chip>
-    </Grid>
+    <>
+      {people.map((person) => {
+        return (
+          <Grid item xs={6}>
+            <Chip
+              label={person.name}
+              variant="outlined"
+              sx={{ width: "90%" }}
+            ></Chip>
+          </Grid>
+        );
+      })}
+    </>
   );
 };
