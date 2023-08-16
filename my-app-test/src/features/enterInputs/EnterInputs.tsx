@@ -1,21 +1,30 @@
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { EnterPeople } from "./components/EnterPeople";
-import { EnterIng } from "./components/EnterIngredient";
+import { EnterPeopleInfo } from "./components/EnterPeopleInfo";
+import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
 
 export const EnterInputs = () => {
   //const { isPersonClicked, isMenuClicked } = useGenerateMenu;
 
   return (
     <Paper elevation={5} sx={{ height: "350px;" }}>
+<<<<<<< Updated upstream
       <Grid container spacing={2} sx={{ p: 3 }}>
         <EnterPeople />
         <EnterIng />
+=======
+      <Grid container spacing={2} sx={{ p: 2 }}>
+        <EnterPeopleInfo />
+        <EnterIngredientInfo />
+>>>>>>> Stashed changes
       </Grid>
-      <Button variant="contained" sx={{ m: 5, borderRadius: 5 }}>
-        Choose
-      </Button>
+      <Box sx={{ m: 5 }}>
+        <Button variant="contained" sx={{ borderRadius: 5 }}>
+          Choose
+        </Button>
+      </Box>
     </Paper>
   );
 };
