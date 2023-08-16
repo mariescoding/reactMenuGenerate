@@ -10,15 +10,9 @@ export const EnterInputs = () => {
 
   return (
     <Paper elevation={5} sx={{ height: "350px;" }}>
-<<<<<<< Updated upstream
-      <Grid container spacing={2} sx={{ p: 3 }}>
-        <EnterPeople />
-        <EnterIng />
-=======
       <Grid container spacing={2} sx={{ p: 2 }}>
         <EnterPeopleInfo />
         <EnterIngredientInfo />
->>>>>>> Stashed changes
       </Grid>
       <Box sx={{ m: 5 }}>
         <Button variant="contained" sx={{ borderRadius: 5 }}>
