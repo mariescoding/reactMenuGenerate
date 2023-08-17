@@ -5,7 +5,7 @@ export const menus = [
     id: 1,
     name: "Dry Curry",
     ingredient: "Pork",
-    rating: [],
+    rating: [2, 3, 4, 5],
   },
   {
     id: 2,
