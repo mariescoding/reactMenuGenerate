@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+import React from "react";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";

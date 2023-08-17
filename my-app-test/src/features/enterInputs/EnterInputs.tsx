@@ -1,5 +1,6 @@
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { EnterPeopleInfo } from "./components/EnterPeopleInfo";
 import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
@@ -13,9 +14,11 @@ export const EnterInputs = () => {
         <EnterPeopleInfo />
         <EnterIngredientInfo />
       </Grid>
-      <Button variant="contained" sx={{ m: 5, borderRadius: 5 }}>
-        Choose
-      </Button>
+      <Box sx={{ m: 5 }}>
+        <Button variant="contained" sx={{ borderRadius: 5 }}>
+          Choose
+        </Button>
+      </Box>
     </Paper>
   );
 };
