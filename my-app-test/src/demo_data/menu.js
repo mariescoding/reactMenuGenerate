@@ -2,7 +2,7 @@
 
 export let menus = [
   {
-    id: 1,
+    id: 343,
     name: "Dry Curry",
     ingredient: "Pork",
     rating: [2, 3, 4, 5],
