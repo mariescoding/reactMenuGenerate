@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 export const menus = [
-
   {
     id: 1,
     name: "Dry Curry",
     ingredient: "Pork",
-    rating: [],
+    rating: [1, 2, 3, 4],
   },
   {
     id: 2,
