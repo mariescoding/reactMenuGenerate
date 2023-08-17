@@ -4,13 +4,13 @@ import Grid from "@mui/material/Grid";
 import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";
 
 type Props = {
-  name: String;
+  ingName: String;
 };
 
-export const IngButton: React.FC<Props> = ({ name }) => {
+export const IngChipGrid: React.FC<Props> = ({ ingName }) => {
   return (
     <Grid item xs={4}>
-      <Chip label={name} variant="outlined" sx={{ width: "90%" }}></Chip>
+      <Chip label={ingName} variant="outlined" sx={{ width: "90%" }}></Chip>
     </Grid>
   );
 };
