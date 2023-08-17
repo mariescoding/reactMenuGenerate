@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-export const menus = [
+export let menus = [
   {
     id: 1,
     name: "Dry Curry",
