@@ -15,7 +15,10 @@ const GenerateApp = () => {
       <MenuBar />
       <Box>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
-          <Title />
+          <Box sx={{ m: 7, fontWeight: "bold" }}>
+            <Title label="Choose Today's Menu" />
+          </Box>
+
           <EnterInputs />
         </Container>
       </Box>

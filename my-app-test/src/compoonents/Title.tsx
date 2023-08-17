@@ -1,10 +1,14 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 
-export const Title = () => {
+type Props = {
+  label: String;
+};
+
+export const Title: React.FC<Props> = ({ label }) => {
   return (
-    <Typography variant="h4" color="primary" sx={{ m: 7, fontWeight: "bold" }}>
-      Choose Today's Menu
+    <Typography variant="h4" color="primary">
+      {label}
     </Typography>
   );
 };
