@@ -3,7 +3,15 @@ import Grid from "@mui/material/Grid";
 import React from "react";
 import { people } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/people.js";
 
-export const PersonButton = () => {
+type Props = {
+  personChipClick: () => void;
+  isSelected: boolean;
+};
+
+export const PersonButton: React.FC<Props> = ({
+  personChipClick,
+  isSelected,
+}) => {
   return (
     <>
       {people.map((person) => {
@@ -12,6 +20,9 @@ export const PersonButton = () => {
             <Chip
               label={person.name}
               variant="outlined"
+              onClick={personChipClick}
+              key={person.id}
+              color={isSelected ? "primary" : "secondary"}
               sx={{ width: "90%" }}
             ></Chip>
           </Grid>
