@@ -14,8 +14,8 @@ export const EnterInputs = () => {
     <Paper elevation={5} sx={{ height: "350px;" }}>
       <Grid container spacing={2} sx={{ p: 2 }}>
         <EnterPeopleInfo
-          // onChipClick={personChipClick}
-          checkClick={ingIsClicked}
+          onChipClick={personChipClick}
+          checkClick={personIsClicked}
         />
         <EnterIngredientInfo
           onChipClick={ingChipClick}
