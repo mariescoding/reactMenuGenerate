@@ -7,12 +7,24 @@ import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo
 
 type Props = {
   ingName: String;
+  ingChipClick: () => void;
+  isSelected: boolean;
 };
 
-export const IngChipGrid: React.FC<Props> = ({ ingName }) => {
+export const IngChipGrid: React.FC<Props> = ({
+  ingName,
+  ingChipClick,
+  isSelected,
+}) => {
   return (
     <Grid item xs={4}>
-      <Chip label={ingName} variant="outlined" sx={{ width: "90%" }}></Chip>
+      <Chip
+        label={ingName}
+        variant="outlined"
+        sx={{ width: "90%" }}
+        color={isSelected ? "secondary" : "primary"}
+        onClick={ingChipClick}
+      ></Chip>
     </Grid>
   );
 };
