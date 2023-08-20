@@ -1,4 +1,10 @@
 import { useState } from "react";
+import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";
+
+type Ingredient = {
+  name: string;
+  isClicked: boolean;
+};
 
 export const useGenerateMenu = () => {
   const [ingIsClicked, setIngIsClicked] = useState<Ingredient[]>([
