@@ -47,19 +47,26 @@ export const useGenerateMenu = () => {
   }
 
   function generateMenu() {
-    function calcAvgRating() {}
-
     const menusArray = menus.map((menu) => {
+      function calcAvgRating() {
+        const average =
+          menu.rating.reduce((a, b) => a + b) / menu.rating.length;
+        console.log(average);
+
+        return null;
+      }
+
       var haveIng = false;
       ingIsClicked.forEach((ingredient) => {
         if (ingredient.name === menu.ingredient && ingredient.isClicked) {
           haveIng = true;
         }
       });
+
       if (haveIng) {
         return {
           ...menu,
-          avgRating: 2,
+          avgRating: calcAvgRating(),
         };
       }
       return menu;
@@ -67,9 +74,7 @@ export const useGenerateMenu = () => {
 
     console.log(menusArray);
 
-    // sort menusArray by avgRating
-
-    //menusArray.sort(function(a,))
+    // menusArray.sort(function (a,))
   }
 
   return {
