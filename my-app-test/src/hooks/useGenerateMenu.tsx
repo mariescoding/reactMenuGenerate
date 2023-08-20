@@ -1,9 +1,13 @@
 import { useState } from "react";
 
 export const useGenerateMenu = () => {
-  const [ingIsClicked, setIngIsClicked] = useState<boolean[]>(
-    Array(5).fill(false)
-  );
+  const [ingIsClicked, setIngIsClicked] = useState<Ingredient[]>([
+    { name: "Chicken", isClicked: false },
+    { name: "Pork", isClicked: false },
+    { name: "Beef", isClicked: false },
+    { name: "Salmon", isClicked: false },
+    { name: "Shrimp", isClicked: false },
+  ]);
 
   const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
     Array(4).fill(false)
