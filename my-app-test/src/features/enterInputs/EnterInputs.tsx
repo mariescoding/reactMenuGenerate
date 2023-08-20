@@ -7,8 +7,13 @@ import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
 import { useGenerateMenu } from "../../hooks/useGenerateMenu";
 
 export const EnterInputs = () => {
-  const { personChipClick, ingChipClick, ingIsClicked, personIsClicked } =
-    useGenerateMenu();
+  const {
+    personChipClick,
+    ingChipClick,
+    ingIsClicked,
+    personIsClicked,
+    generateMenu,
+  } = useGenerateMenu();
 
   return (
     <Paper elevation={5} sx={{ height: "350px;" }}>
@@ -23,7 +28,11 @@ export const EnterInputs = () => {
         />
       </Grid>
       <Box sx={{ m: 5 }}>
-        <Button variant="contained" sx={{ borderRadius: 5 }}>
+        <Button
+          variant="contained"
+          sx={{ borderRadius: 5 }}
+          onClick={generateMenu}
+        >
           Choose
         </Button>
       </Box>
