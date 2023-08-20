@@ -49,11 +49,16 @@ export const useGenerateMenu = () => {
   function generateMenu() {
     const menusArray = menus.map((menu) => {
       function calcAvgRating() {
-        const average =
-          menu.rating.reduce((a, b) => a + b) / menu.rating.length;
-        console.log(average);
+        const ratingOfPresent: Array<number> = [];
+        personIsClicked.forEach((person, i) => {
+          if (person) {
+            ratingOfPresent.push(menu.rating[i]);
+          }
+        });
 
-        return null;
+        const average =
+          ratingOfPresent.reduce((a, b) => a + b) / ratingOfPresent.length;
+        return average;
       }
 
       var haveIng = false;
