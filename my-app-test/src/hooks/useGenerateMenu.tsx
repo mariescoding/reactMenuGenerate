@@ -16,7 +16,8 @@ export const useGenerateMenu = () => {
   ]);
 
   const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
-    Array(4).fill(false)
+    [true, false, false, false]
+    // Array(4).fill(false)
   );
 
   function ingChipClick(id: number) {
@@ -55,7 +56,6 @@ export const useGenerateMenu = () => {
             ratingOfPresent.push(menu.rating[i]);
           }
         });
-
         const average =
           ratingOfPresent.reduce((a, b) => a + b) / ratingOfPresent.length;
         return average;
@@ -77,9 +77,12 @@ export const useGenerateMenu = () => {
       return menu;
     });
 
+    menusArray.sort(function (a, b) {
+      if (a.avgRating < b.avgRating) return 1;
+      if (a.avgRating > b.avgRating) return -1;
+      return 0;
+    });
     console.log(menusArray);
-
-    // menusArray.sort(function (a,))
   }
 
   return {
