@@ -5,7 +5,9 @@ export const useGenerateMenu = () => {
     Array(5).fill(false)
   );
 
-  const [personIsClicked, setPersonIsClicked] = useState(Array(4).fill(false));
+  const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
+    Array(4).fill(false)
+  );
 
   function ingChipClick(id: number) {
     setIngIsClicked((prevValues) => {
@@ -20,9 +22,15 @@ export const useGenerateMenu = () => {
   }
 
   function personChipClick(id: number) {
-    const copyPersonClicked = personIsClicked.slice();
-    copyPersonClicked[id] = !copyPersonClicked[id];
-    setPersonIsClicked(copyPersonClicked);
+    setPersonIsClicked((prevValues) => {
+      return prevValues.map((person, i) => {
+        if (i === id) {
+          return !person;
+        }
+
+        return person;
+      });
+    });
   }
 
   return { ingChipClick, personChipClick, ingIsClicked, personIsClicked };
