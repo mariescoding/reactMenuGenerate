@@ -27,7 +27,6 @@ export const PersonButton: React.FC<Props> = ({
             ></Chip>
           </Grid>
         );
-        return key;
       })}
     </>
   );
