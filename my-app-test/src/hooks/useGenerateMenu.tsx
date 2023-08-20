@@ -23,7 +23,10 @@ export const useGenerateMenu = () => {
     setIngIsClicked((prevValues) => {
       return prevValues.map((ing, i) => {
         if (i === id) {
-          return !ing;
+          return {
+            ...ing,
+            isClicked: !ing.isClicked,
+          };
         }
 
         return ing;
@@ -43,5 +46,37 @@ export const useGenerateMenu = () => {
     });
   }
 
-  return { ingChipClick, personChipClick, ingIsClicked, personIsClicked };
+  function generateMenu() {
+    function calcAvgRating() {}
+
+    const menusArray = menus.map((menu) => {
+      var haveIng = false;
+      ingIsClicked.forEach((ingredient) => {
+        if (ingredient.name === menu.ingredient && ingredient.isClicked) {
+          haveIng = true;
+        }
+      });
+      if (haveIng) {
+        return {
+          ...menu,
+          avgRating: 2,
+        };
+      }
+      return menu;
+    });
+
+    console.log(menusArray);
+
+    // sort menusArray by avgRating
+
+    //menusArray.sort(function(a,))
+  }
+
+  return {
+    ingChipClick,
+    personChipClick,
+    ingIsClicked,
+    personIsClicked,
+    generateMenu,
+  };
 };
