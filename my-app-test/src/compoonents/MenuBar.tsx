@@ -3,8 +3,8 @@ import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import HomeOutlinedIcon from "@mui/material/IconButton";
-import MenuBookOutlinedIcon from "@mui/material/IconButton";
+import { HomeOutlined, MenuBookOutlined } from "@mui/icons-material";
+import { NavLink } from "react-router-dom";
 
 export const MenuBar = () => {
   return (
@@ -17,11 +17,26 @@ export const MenuBar = () => {
             </Typography>
           </Box>
 
-          <IconButton size="medium" edge="end" color="inherit" sx={{ mr: 2 }}>
-            <HomeOutlinedIcon />
+          <IconButton
+            size="medium"
+            edge="start"
+            color="secondary"
+            sx={{ mr: 2 }}
+          >
+            <NavLink to="/">
+              <HomeOutlined />
+            </NavLink>
           </IconButton>
-          <IconButton size="medium" edge="end" color="inherit" sx={{ mr: 2 }}>
-            <MenuBookOutlinedIcon />
+
+          <IconButton
+            size="medium"
+            edge="start"
+            color="secondary"
+            sx={{ mr: 2 }}
+          >
+            <NavLink to="/browse">
+              <MenuBookOutlined />
+            </NavLink>
           </IconButton>
         </Toolbar>
       </AppBar>
