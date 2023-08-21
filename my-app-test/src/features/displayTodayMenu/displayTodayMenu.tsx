@@ -4,8 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import React from "react";
-import Chip from "@mui/material/Chip";
-import Rating from "@mui/material/Rating";
+import { MenuDetail } from "./components/MenuDetail";
 
 type Props = {
   imageUrl: string;
@@ -33,27 +32,7 @@ export const DisplayTodayMenu: React.FC<Props> = ({
             <Typography variant="h5">{foodName}</Typography>
           </Box>
           <Divider />
-
-          <Grid container spacing={2} sx={{ p: 3, mt: 1, mb: 1 }}>
-            <Grid item md={5}>
-              <Typography variant="button">Ingredient</Typography>
-            </Grid>
-            <Grid item md={7}>
-              <Chip
-                label={ingName}
-                variant="filled"
-                sx={{ width: "50%" }}
-                color="primary"
-              ></Chip>
-            </Grid>
-
-            <Grid item md={5}>
-              <Typography variant="button">Rating</Typography>
-            </Grid>
-            <Grid item md={7}>
-              <Rating name="avgRate" value={avgRate} precision={0.5} readOnly />
-            </Grid>
-          </Grid>
+          <MenuDetail ingName={ingName} avgRate={avgRate} />
         </Grid>
       </Grid>
     </Paper>
