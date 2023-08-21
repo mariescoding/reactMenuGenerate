@@ -21,7 +21,7 @@ export const DisplayTodayMenu: React.FC<Props> = ({
   avgRate,
 }) => {
   return (
-    <Paper elevation={3} sx={{ height: "350px;" }}>
+    <Paper elevation={3} sx={{ height: "380px;" }}>
       <Grid container spacing={2} sx={{ p: 3 }}>
         <Grid item md={6}>
           <Box sx={{ width: "90%", height: "80%", mt: 3, ml: 1, mb: 3 }}>
