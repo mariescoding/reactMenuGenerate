@@ -16,8 +16,7 @@ export const useGenerateMenu = () => {
   ]);
 
   const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
-    [true, false, false, false]
-    // Array(4).fill(false)
+    Array(4).fill(false)
   );
 
   function ingChipClick(id: number) {
