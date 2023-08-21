@@ -62,7 +62,9 @@ export const useGenerateMenu = () => {
 
       if (
         ingIsClicked.some((ingredient) => {
-          return ingredient.name === menu.ingredient && ingredient.isClicked;
+          const haveIngredient =
+            ingredient.name === menu.ingredient && ingredient.isClicked;
+          return haveIngredient;
         })
       ) {
         return {
