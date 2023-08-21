@@ -82,6 +82,7 @@ export const useGenerateMenu = () => {
       return 0;
     });
     console.log(menusArray);
+    console.log(menusArray[0]);
   }
 
   return {
