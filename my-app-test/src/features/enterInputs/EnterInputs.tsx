@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import { EnterPeopleInfo } from "./components/EnterPeopleInfo";
 import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
 import { useGenerateMenu } from "../../hooks/useGenerateMenu";
+import { NavLink } from "react-router-dom";
 
 export const EnterInputs = () => {
   const {
@@ -28,6 +29,7 @@ export const EnterInputs = () => {
         />
       </Grid>
       <Box sx={{ m: 5 }}>
+        {/* <NavLink to="/home"> */}
         <Button
           variant="contained"
           sx={{ borderRadius: 5 }}
@@ -35,6 +37,7 @@ export const EnterInputs = () => {
         >
           Choose
         </Button>
+        {/* </NavLink> */}
       </Box>
     </Paper>
   );
