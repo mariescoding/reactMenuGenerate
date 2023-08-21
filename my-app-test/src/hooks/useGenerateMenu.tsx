@@ -60,14 +60,11 @@ export const useGenerateMenu = () => {
         return average;
       }
 
-      let haveIng = false;
-      ingIsClicked.forEach((ingredient) => {
-        if (ingredient.name === menu.ingredient && ingredient.isClicked) {
-          haveIng = true;
-        }
-      });
-
-      if (haveIng) {
+      if (
+        ingIsClicked.some((ingredient) => {
+          return ingredient.name === menu.ingredient && ingredient.isClicked;
+        })
+      ) {
         return {
           ...menu,
           avgRating: calcAvgRating(),
