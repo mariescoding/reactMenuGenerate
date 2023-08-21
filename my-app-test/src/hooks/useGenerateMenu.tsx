@@ -60,7 +60,7 @@ export const useGenerateMenu = () => {
         return average;
       }
 
-      var haveIng = false;
+      let haveIng = false;
       ingIsClicked.forEach((ingredient) => {
         if (ingredient.name === menu.ingredient && ingredient.isClicked) {
           haveIng = true;
