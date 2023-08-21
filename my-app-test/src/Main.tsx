@@ -8,9 +8,9 @@ import { Browse } from "./pages/browse";
 export const Main = () => {
   return (
     <Routes>
-      <Route path="/home" Component={Home}></Route>
-      <Route path="/" Component={Generate}></Route>
-      <Route path="/browse" Component={Browse}></Route>
+      <Route path="/home" Component={Home} />
+      <Route path="/" Component={Generate} />
+      <Route path="/browse" Component={Browse} />
     </Routes>
   );
 };

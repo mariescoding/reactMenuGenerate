@@ -6,7 +6,7 @@ import { DisplayTodayMenu } from "../features/displayTodayMenu/displayTodayMenu"
 
 export const Home = () => {
   return (
-    <>
+
       <Box>
         <Container maxWidth="md" sx={{ textAlign: "center" }}>
           <Box sx={{ m: 7, fontWeight: "bold" }}>
@@ -20,6 +20,7 @@ export const Home = () => {
           />
         </Container>
       </Box>
-    </>
+  
+
   );
 };

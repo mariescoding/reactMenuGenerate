@@ -50,8 +50,8 @@ export const useGenerateMenu = () => {
     const menusArray = menus.map((menu) => {
       function calcAvgRating() {
         const ratingOfPresent: Array<number> = [];
-        personIsClicked.forEach((person, i) => {
-          if (person) {
+        personIsClicked.forEach((personBoolean, i) => {
+          if (personBoolean) {
             ratingOfPresent.push(menu.rating[i]);
           }
         });
@@ -60,14 +60,11 @@ export const useGenerateMenu = () => {
         return average;
       }
 
-      var haveIng = false;
-      ingIsClicked.forEach((ingredient) => {
-        if (ingredient.name === menu.ingredient && ingredient.isClicked) {
-          haveIng = true;
-        }
-      });
-
-      if (haveIng) {
+      if (
+        ingIsClicked.some((ingredient) => {
+          return ingredient.name === menu.ingredient && ingredient.isClicked;
+        })
+      ) {
         return {
           ...menu,
           avgRating: calcAvgRating(),
@@ -76,13 +73,14 @@ export const useGenerateMenu = () => {
       return menu;
     });
 
-    menusArray.sort(function (a, b) {
+    const sortedMenuArray = menusArray.sort(function (a, b) {
       if (a.avgRating < b.avgRating) return 1;
       if (a.avgRating > b.avgRating) return -1;
       return 0;
     });
-    console.log(menusArray);
-    console.log(menusArray[0]);
+
+    console.log(sortedMenuArray);
+    console.log(sortedMenuArray[0]);
   }
 
   return {
