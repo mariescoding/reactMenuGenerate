@@ -6,14 +6,12 @@ import { Title } from "../compoonents/Title";
 
 export const Home = () => {
   return (
-    <>
-      <Box>
-        <Container maxWidth="md" sx={{ textAlign: "center" }}>
-          <Box sx={{ m: 7, fontWeight: "bold" }}>
-            <Title label="Today's Menu" />
-          </Box>
-        </Container>
-      </Box>
-    </>
+    <Box>
+      <Container maxWidth="md" sx={{ textAlign: "center" }}>
+        <Box sx={{ m: 7, fontWeight: "bold" }}>
+          <Title label="Today's Menu" />
+        </Box>
+      </Container>
+    </Box>
   );
 };
