@@ -1,48 +1,87 @@
 import { useState } from "react";
+import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";
 
-// type Ingredient = {
-//   id: string;
-//   name: string;
-//   selected: boolean;
-// };
+type Ingredient = {
+  name: string;
+  isClicked: boolean;
+};
 
 export const useGenerateMenu = () => {
-  const [ingIsClicked, setIngIsClicked] = useState<boolean[]>(
-    Array(5).fill(false)
-  );
+  const [ingIsClicked, setIngIsClicked] = useState<Ingredient[]>([
+    { name: "Chicken", isClicked: false },
+    { name: "Pork", isClicked: false },
+    { name: "Beef", isClicked: false },
+    { name: "Salmon", isClicked: false },
+    { name: "Shrimp", isClicked: false },
+  ]);
 
-  //方法１
-  const [personIsClicked, setPersonIsClicked] = useState(Array(4).fill(false));
+  const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
+    Array(4).fill(false)
+  );
 
   function ingChipClick(id: number) {
     setIngIsClicked((prevValues) => {
       return prevValues.map((ing, i) => {
         if (i === id) {
-          return !ing;
+          return {
+            ...ing,
+            isClicked: !ing.isClicked,
+          };
         }
 
         return ing;
       });
     });
-
-    //方法２
-
-    // const copyIngClicked = ingIsClicked.slice();
-    // copyIngClicked[id] = !copyIngClicked[id];
-    // setIngIsClicked(copyIngClicked);
-
-    //方法３
-
-    //ファイルの上に書いてあるIngredient用のオブジェクトを作り、...演算子を使ってselectedだけを変更する
-
-    //方法１〜３どれをお勧めしますか？
   }
 
   function personChipClick(id: number) {
-    const copyPersonClicked = personIsClicked.slice();
-    copyPersonClicked[id] = !copyPersonClicked[id];
-    setPersonIsClicked(copyPersonClicked);
+    setPersonIsClicked((prevValues) => {
+      return prevValues.map((person, i) => {
+        if (i === id) {
+          return !person;
+        }
+
+        return person;
+      });
+    });
   }
 
-  return { ingChipClick, personChipClick, ingIsClicked, personIsClicked };
+  function generateMenu() {
+    const menusArray = menus.map((menu) => {
+      function calcAvgRating() {
+        const average =
+          menu.rating.reduce((a, b) => a + b) / menu.rating.length;
+        console.log(average);
+
+        return null;
+      }
+
+      var haveIng = false;
+      ingIsClicked.forEach((ingredient) => {
+        if (ingredient.name === menu.ingredient && ingredient.isClicked) {
+          haveIng = true;
+        }
+      });
+
+      if (haveIng) {
+        return {
+          ...menu,
+          avgRating: calcAvgRating(),
+        };
+      }
+      return menu;
+    });
+
+    console.log(menusArray);
+
+    // menusArray.sort(function (a,))
+  }
+
+  return {
+    ingChipClick,
+    personChipClick,
+    ingIsClicked,
+    personIsClicked,
+    generateMenu,
+  };
 };

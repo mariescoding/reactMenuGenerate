@@ -16,7 +16,7 @@ export const PersonButton: React.FC<Props> = ({
     <>
       {people.map((person) => {
         return (
-          <Grid item xs={6}>
+          <Grid item xs={6} key={person.id}>
             <Chip
               label={person.name}
               variant="outlined"

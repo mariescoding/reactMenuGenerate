@@ -1,21 +1,21 @@
 export const people = [
   {
-    id: 1,
+    id: 0,
     name: "Marie",
   },
 
   {
-    id: 2,
+    id: 1,
     name: "Ayaka",
   },
 
   {
-    id: 3,
+    id: 2,
     name: "Maru",
   },
 
   {
-    id: 4,
+    id: 3,
     name: "Gump",
   },
 ];
