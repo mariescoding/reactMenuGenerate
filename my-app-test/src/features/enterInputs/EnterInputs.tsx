@@ -29,15 +29,15 @@ export const EnterInputs = () => {
         />
       </Grid>
       <Box sx={{ m: 5 }}>
-        {/* <NavLink to="/home"> */}
-        <Button
-          variant="contained"
-          sx={{ borderRadius: 5 }}
-          onClick={generateMenu}
-        >
-          Choose
-        </Button>
-        {/* </NavLink> */}
+        <NavLink to="/home">
+          <Button
+            variant="contained"
+            sx={{ borderRadius: 5 }}
+            onClick={generateMenu}
+          >
+            Choose
+          </Button>
+        </NavLink>
       </Box>
     </Paper>
   );
