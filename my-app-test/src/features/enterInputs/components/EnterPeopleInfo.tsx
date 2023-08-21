@@ -17,10 +17,7 @@ export const EnterPeopleInfo: React.FC<Props> = ({
     <Grid item md={6}>
       <Typography variant="h6">Who's eating?</Typography>
       <Grid container spacing={2} sx={{ p: 3, mt: 1 }}>
-        {/* <PersonButton
-          personChipClick={() => onChipClick(key)}
-          isSelected={checkClick[key]}
-        /> */}
+        <PersonButton personChipClick={onChipClick} isSelected={checkClick} />
       </Grid>
     </Grid>
   );

@@ -49,21 +49,24 @@ export const useGenerateMenu = () => {
   function generateMenu() {
     const menusArray = menus.map((menu) => {
       function calcAvgRating() {
+        const ratingOfPresent: Array<number> = [];
+        personIsClicked.forEach((personBoolean, i) => {
+          if (personBoolean) {
+            ratingOfPresent.push(menu.rating[i]);
+          }
+        });
         const average =
-          menu.rating.reduce((a, b) => a + b) / menu.rating.length;
-        console.log(average);
-
-        return null;
+          ratingOfPresent.reduce((a, b) => a + b) / ratingOfPresent.length;
+        return average;
       }
 
-      var haveIng = false;
-      ingIsClicked.forEach((ingredient) => {
-        if (ingredient.name === menu.ingredient && ingredient.isClicked) {
-          haveIng = true;
-        }
-      });
-
-      if (haveIng) {
+      if (
+        ingIsClicked.some((ingredient) => {
+          const haveIngredient =
+            ingredient.name === menu.ingredient && ingredient.isClicked;
+          return haveIngredient;
+        })
+      ) {
         return {
           ...menu,
           avgRating: calcAvgRating(),
@@ -72,9 +75,14 @@ export const useGenerateMenu = () => {
       return menu;
     });
 
-    console.log(menusArray);
+    const sortedMenuArray = menusArray.sort(function (a, b) {
+      if (a.avgRating < b.avgRating) return 1;
+      if (a.avgRating > b.avgRating) return -1;
+      return 0;
+    });
 
-    // menusArray.sort(function (a,))
+    console.log(sortedMenuArray);
+    console.log(sortedMenuArray[0]);
   }
 
   return {

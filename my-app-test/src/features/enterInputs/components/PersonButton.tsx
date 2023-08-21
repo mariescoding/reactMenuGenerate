@@ -4,8 +4,8 @@ import React from "react";
 import { people } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/people.js";
 
 type Props = {
-  personChipClick: () => void;
-  isSelected: boolean;
+  personChipClick: (key: number) => void;
+  isSelected: Array<boolean>;
 };
 
 export const PersonButton: React.FC<Props> = ({
@@ -20,9 +20,8 @@ export const PersonButton: React.FC<Props> = ({
             <Chip
               label={person.name}
               variant="outlined"
-              onClick={personChipClick}
-              key={person.id}
-              color={isSelected ? "primary" : "secondary"}
+              onClick={() => personChipClick(person.id)}
+              color={isSelected[person.id] ? "secondary" : "primary"}
               sx={{ width: "90%" }}
             ></Chip>
           </Grid>
