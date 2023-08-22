@@ -1,23 +1,26 @@
 import Grid from "@mui/material/Grid";
-import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
-import { PersonButton } from "./PersonButton";
+import { PersonList } from "./PersonButton";
 import React from "react";
 
 type Props = {
   onChipClick: (key: number) => void;
-  checkClick: Array<boolean>;
+  peopleData: {
+    personid: number;
+    name: string;
+    isClicked: boolean;
+  }[];
 };
 
 export const EnterPeopleInfo: React.FC<Props> = ({
   onChipClick,
-  checkClick,
+  peopleData,
 }) => {
   return (
     <Grid item md={6}>
       <Typography variant="h6">Who's eating?</Typography>
       <Grid container spacing={2} sx={{ p: 3, mt: 1 }}>
-        <PersonButton personChipClick={onChipClick} isSelected={checkClick} />
+        <PersonList personChipClick={onChipClick} peopleData={peopleData} />
       </Grid>
     </Grid>
   );

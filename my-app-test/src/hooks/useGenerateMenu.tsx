@@ -38,13 +38,7 @@ export const useGenerateMenu = () => {
   ]);
 
   // person state:
-  const [PeopleData, setPeopleData] = useState<People[]>([
-    {
-      personid: 0,
-      name: "",
-      isClicked: false,
-    },
-  ]);
+  const [PeopleData, setPeopleData] = useState<People[]>([]);
 
   // menu state:
 

@@ -24,11 +24,11 @@ export const EnterInputs = () => {
       <Grid container spacing={2} sx={{ p: 2 }}>
         <EnterPeopleInfo
           onChipClick={personChipClick}
-          checkClick={personIsClicked}
+          peopleData={PeopleData}
         />
         <EnterIngredientInfo
           onChipClick={ingChipClick}
-          checkClick={ingIsClicked}
+          ingData={IngredientData}
         />
       </Grid>
       <Box sx={{ m: 5 }}>
