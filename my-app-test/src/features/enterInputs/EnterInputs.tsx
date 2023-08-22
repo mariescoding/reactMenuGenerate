@@ -9,7 +9,7 @@ import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
 import { useGenerateMenu } from "../../hooks/useGenerateMenu";
 import { NavLink } from "react-router-dom";
 
-export const EnterInputs = () => {
+export const MenuDetailInput = () => {
   const {
     personChipClick,
     ingChipClick,
