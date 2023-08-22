@@ -4,11 +4,23 @@ import { people } from "../demo_data/people";
 import { ingredients } from "../demo_data/ingredient";
 
 type Ingredient = {
-  obj: {
-    id: number;
-    name: string;
-    isClicked: boolean;
-  };
+  id: number;
+  name: string;
+  isClicked: boolean;
+};
+
+type People = {
+  personid: number;
+  name: string;
+};
+
+type Menu = {
+  menuid: number;
+  name: string;
+  ingredient: string;
+  image: string;
+  rating: [];
+  avgRating: number;
 };
 
 // get mock data and put it into the state below
@@ -16,31 +28,34 @@ type Ingredient = {
 export const useGenerateMenu = () => {
   // ingredient state :
 
-  const [IngredientData, setIngredientData] = useState<Ingredient[]>({
-    ingid: {
+  const [IngredientData, setIngredientData] = useState<Ingredient[]>([
+    {
+      id: 0,
       name: "",
       isClicked: false,
     },
-  });
+  ]);
 
   // person state:
-  const [PeopleData, setPeopleData] = useState({
-    personid: {
+  const [PeopleData, setPeopleData] = useState<People[]>([
+    {
+      personid: 0,
       name: "",
     },
-  });
+  ]);
 
   // menu state:
 
-  const [MenuData, setMenuData] = useState({
-    menuid: {
+  const [MenuData, setMenuData] = useState<Menu[]>([
+    {
+      menuid: 0,
       name: "",
       ingredient: "",
       image: "",
       rating: [],
       avgRating: 0,
     },
-  });
+  ]);
 
   // set data to states above
 
