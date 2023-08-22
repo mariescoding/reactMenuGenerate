@@ -9,6 +9,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 2,
     name: "生姜焼き",
@@ -17,6 +18,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 3,
     name: "肉じゃが",
@@ -25,6 +27,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 4,
     name: "春巻き",
@@ -33,6 +36,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 5,
     name: "チキン南蛮",
@@ -41,6 +45,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 6,
     name: "油淋鶏",
@@ -49,6 +54,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 7,
     name: "Beef Stew",
@@ -57,6 +63,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 8,
     name: "Steak",
@@ -65,6 +72,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 9,
     name: "牛丼",
@@ -73,6 +81,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 10,
     name: "鮭定食",
@@ -81,6 +90,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 11,
     name: "Poke Bowl",
@@ -89,6 +99,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 12,
     name: "Ahijo",
@@ -97,6 +108,7 @@ export const menus = [
     avgRating: 0,
     image: "",
   },
+
   {
     id: 13,
     name: "エビフライ",

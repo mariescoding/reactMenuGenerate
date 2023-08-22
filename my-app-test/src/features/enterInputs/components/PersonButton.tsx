@@ -1,27 +1,30 @@
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import React from "react";
-import { people } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/people.js";
 
 type Props = {
   personChipClick: (key: number) => void;
-  isSelected: Array<boolean>;
+  peopleData: {
+    personid: number;
+    name: string;
+    isClicked: boolean;
+  }[];
 };
 
-export const PersonButton: React.FC<Props> = ({
+export const PersonList: React.FC<Props> = ({
   personChipClick,
-  isSelected,
+  peopleData,
 }) => {
   return (
     <>
-      {people.map((person) => {
+      {peopleData.map((person) => {
         return (
-          <Grid item xs={6} key={person.id}>
+          <Grid item xs={6}>
             <Chip
               label={person.name}
               variant="outlined"
-              onClick={() => personChipClick(person.id)}
-              color={isSelected[person.id] ? "secondary" : "primary"}
+              onClick={() => personChipClick(person.personid)}
+              color={person.isClicked ? "secondary" : "primary"}
               sx={{ width: "90%" }}
             ></Chip>
           </Grid>

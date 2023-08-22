@@ -9,12 +9,13 @@ import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
 import { useGenerateMenu } from "../../hooks/useGenerateMenu";
 import { NavLink } from "react-router-dom";
 
-export const EnterInputs = () => {
+export const MenuDetailInput = () => {
   const {
     personChipClick,
     ingChipClick,
-    ingIsClicked,
-    personIsClicked,
+    IngredientData,
+    PeopleData,
+    MenuData,
     generateMenu,
   } = useGenerateMenu();
 
@@ -23,11 +24,11 @@ export const EnterInputs = () => {
       <Grid container spacing={2} sx={{ p: 2 }}>
         <EnterPeopleInfo
           onChipClick={personChipClick}
-          checkClick={personIsClicked}
+          peopleData={PeopleData}
         />
         <EnterIngredientInfo
           onChipClick={ingChipClick}
-          checkClick={ingIsClicked}
+          ingData={IngredientData}
         />
       </Grid>
       <Box sx={{ m: 5 }}>

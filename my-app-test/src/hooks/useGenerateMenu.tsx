@@ -1,59 +1,143 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";
 import { people } from "../demo_data/people";
 import { ingredients } from "../demo_data/ingredient";
 
 type Ingredient = {
+  ingid: number;
   name: string;
   isClicked: boolean;
 };
 
+type People = {
+  personid: number;
+  name: string;
+  isClicked: boolean;
+};
+
+type Menu = {
+  menuid: number;
+  name: string;
+  ingredient: string;
+  image: string;
+  rating: number[];
+  avgRating: number;
+};
+
+// get mock data and put it into the state below
+
 export const useGenerateMenu = () => {
-  const [ingIsClicked, setIngIsClicked] = useState<Ingredient[]>([
-    { name: "Chicken", isClicked: false },
-    { name: "Pork", isClicked: false },
-    { name: "Beef", isClicked: false },
-    { name: "Salmon", isClicked: false },
-    { name: "Shrimp", isClicked: false },
+  // ingredient state :
+
+  const [IngredientData, setIngredientData] = useState<Ingredient[]>([
+    {
+      ingid: 0,
+      name: "",
+      isClicked: false,
+    },
   ]);
 
-  const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
-    Array(4).fill(false)
-  );
+  // person state:
+  const [PeopleData, setPeopleData] = useState<People[]>([]);
+
+  // menu state:
+
+  const [MenuData, setMenuData] = useState<Menu[]>([
+    {
+      menuid: 0,
+      name: "",
+      ingredient: "",
+      image: "",
+      rating: [],
+      avgRating: 0,
+    },
+  ]);
+
+  // set data to states above
+
+  function setIngredient() {
+    const ingDataCopy = ingredients.map((ingredient) => {
+      return {
+        ingid: ingredient.id,
+        name: ingredient.name,
+        isClicked: ingredient.isClicked,
+      };
+    });
+    setIngredientData(ingDataCopy);
+  }
+
+  function setPeople() {
+    const peopleDataCopy = people.map((person) => {
+      return {
+        personid: person.id,
+        name: person.name,
+        isClicked: false,
+      };
+    });
+    setPeopleData(peopleDataCopy);
+  }
+
+  function setMenu() {
+    const menuDataCopy = menus.map((menu) => {
+      return {
+        menuid: menu.id,
+        name: menu.name,
+        ingredient: menu.ingredient,
+        image: menu.image,
+        rating: menu.rating,
+        avgRating: menu.avgRating,
+      };
+    });
+    setMenuData(menuDataCopy);
+  }
+
+  useEffect(() => {
+    setIngredient();
+    setPeople();
+    setMenu();
+  }, []);
+
+  //eventlisteners for chips
 
   function ingChipClick(id: number) {
-    setIngIsClicked((prevValues) => {
-      return prevValues.map((ing, i) => {
-        if (i === id) {
+    setIngredientData((prevValues) => {
+      return prevValues.map((ing) => {
+        if (ing.ingid === id) {
           return {
             ...ing,
             isClicked: !ing.isClicked,
           };
         }
-
         return ing;
       });
     });
   }
 
   function personChipClick(id: number) {
-    setPersonIsClicked((prevValues) => {
-      return prevValues.map((person, i) => {
-        if (i === id) {
-          return !person;
+    setPeopleData((prevValues) => {
+      return prevValues.map((person) => {
+        if (person.personid === id) {
+          return {
+            ...person,
+            isClicked: !person.isClicked,
+          };
         }
-
         return person;
       });
     });
   }
 
+  // choose top menu
+
   function generateMenu() {
     const menusArray = menus.map((menu) => {
+      // calcualte average rating of each menu
+
       function calcAvgRating() {
         const ratingOfPresent: Array<number> = [];
-        personIsClicked.forEach((personBoolean, i) => {
-          if (personBoolean) {
+        PeopleData.forEach((person, i) => {
+          if (person.isClicked) {
             ratingOfPresent.push(menu.rating[i]);
           }
         });
@@ -62,16 +146,19 @@ export const useGenerateMenu = () => {
         return average;
       }
 
-      if (
-        ingIsClicked.some((ingredient) => {
-          return ingredient.name === menu.ingredient && ingredient.isClicked;
-        })
-      ) {
+      // check if ingredient of menu is clicked
+
+      const haveIngredient = IngredientData.some((ingredient) => {
+        return ingredient.name === menu.ingredient && ingredient.isClicked;
+      });
+
+      if (haveIngredient) {
         return {
           ...menu,
           avgRating: calcAvgRating(),
         };
       }
+
       return menu;
     });
 
@@ -82,14 +169,14 @@ export const useGenerateMenu = () => {
     });
 
     console.log(sortedMenuArray);
-    console.log(sortedMenuArray[0]);
   }
 
   return {
     ingChipClick,
     personChipClick,
-    ingIsClicked,
-    personIsClicked,
+    IngredientData,
+    PeopleData,
+    MenuData,
     generateMenu,
   };
 };

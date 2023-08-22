@@ -20,7 +20,7 @@ export const ingredients = [
     isClicked: false,
   },
   {
-    id: 4,
+    id: 5,
     name: "Shrimp",
     isClicked: false,
   },
