@@ -12,6 +12,7 @@ type Ingredient = {
 type People = {
   personid: number;
   name: string;
+  isClicked: boolean;
 };
 
 type Menu = {
@@ -41,6 +42,7 @@ export const useGenerateMenu = () => {
     {
       personid: 0,
       name: "",
+      isClicked: false,
     },
   ]);
 
@@ -101,7 +103,7 @@ export const useGenerateMenu = () => {
   //eventlisteners for chips
 
   function ingChipClick(id: number) {
-    setIngIsClicked((prevValues) => {
+    setIngredientData((prevValues) => {
       return prevValues.map((ing, i) => {
         if (i === id) {
           return {
@@ -116,10 +118,13 @@ export const useGenerateMenu = () => {
   }
 
   function personChipClick(id: number) {
-    setPersonIsClicked((prevValues) => {
+    setPeopleData((prevValues) => {
       return prevValues.map((person, i) => {
         if (i === id) {
-          return !person;
+          return {
+            ...person,
+            isClicked: !person.isClicked,
+          };
         }
 
         return person;
