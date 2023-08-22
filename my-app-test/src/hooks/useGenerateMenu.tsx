@@ -135,10 +135,12 @@ export const useGenerateMenu = () => {
 
   function generateMenu() {
     const menusArray = menus.map((menu) => {
+      // calcualte average rating of each menu
+
       function calcAvgRating() {
         const ratingOfPresent: Array<number> = [];
-        personIsClicked.forEach((personBoolean, i) => {
-          if (personBoolean) {
+        PeopleData.forEach((person, i) => {
+          if (person.isClicked) {
             ratingOfPresent.push(menu.rating[i]);
           }
         });
@@ -147,8 +149,10 @@ export const useGenerateMenu = () => {
         return average;
       }
 
+      // check if ingredient of menu is clicked
+
       if (
-        ingIsClicked.some((ingredient) => {
+        IngredientData.some((ingredient) => {
           return ingredient.name === menu.ingredient && ingredient.isClicked;
         })
       ) {
