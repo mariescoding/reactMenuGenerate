@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";
+import { people } from "../demo_data/people";
+import { ingredients } from "../demo_data/ingredient";
 
 type Ingredient = {
   name: string;

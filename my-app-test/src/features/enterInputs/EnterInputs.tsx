@@ -2,8 +2,10 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+
 import { EnterPeopleInfo } from "./components/EnterPeopleInfo";
 import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
+
 import { useGenerateMenu } from "../../hooks/useGenerateMenu";
 import { NavLink } from "react-router-dom";
 

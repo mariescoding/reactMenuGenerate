@@ -7,6 +7,7 @@ export const menus = [
     ingredient: "Pork",
     rating: [1, 2, 3, 4],
     avgRating: 0,
+    image: "",
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ export const menus = [
     ingredient: "Pork",
     rating: [1, 2, 3, 4],
     avgRating: 0,
+    image: "",
   },
   {
     id: 3,
@@ -21,6 +23,7 @@ export const menus = [
     ingredient: "Pork",
     rating: [2, 4, 4, 5],
     avgRating: 0,
+    image: "",
   },
   {
     id: 4,
@@ -28,6 +31,7 @@ export const menus = [
     ingredient: "Chicken",
     rating: [3, 3, 3, 4],
     avgRating: 0,
+    image: "",
   },
   {
     id: 5,
@@ -35,6 +39,7 @@ export const menus = [
     ingredient: "Chicken",
     rating: [5, 5, 4, 3],
     avgRating: 0,
+    image: "",
   },
   {
     id: 6,
@@ -42,6 +47,7 @@ export const menus = [
     ingredient: "Chicken",
     rating: [2, 3, 4, 5],
     avgRating: 0,
+    image: "",
   },
   {
     id: 7,
@@ -49,6 +55,7 @@ export const menus = [
     ingredient: "Beef",
     rating: [2, 3, 5, 5],
     avgRating: 0,
+    image: "",
   },
   {
     id: 8,
@@ -56,6 +63,7 @@ export const menus = [
     ingredient: "Beef",
     rating: [1, 2, 4, 5],
     avgRating: 0,
+    image: "",
   },
   {
     id: 9,
@@ -63,6 +71,7 @@ export const menus = [
     ingredient: "Beef",
     rating: [4, 4, 5, 3],
     avgRating: 0,
+    image: "",
   },
   {
     id: 10,
@@ -70,6 +79,7 @@ export const menus = [
     ingredient: "Salmon",
     rating: [2, 4, 4, 5],
     avgRating: 0,
+    image: "",
   },
   {
     id: 11,
@@ -77,6 +87,7 @@ export const menus = [
     ingredient: "Salmon",
     rating: [5, 5, 3, 2],
     avgRating: 0,
+    image: "",
   },
   {
     id: 12,
@@ -84,6 +95,7 @@ export const menus = [
     ingredient: "Shrimp",
     rating: [3, 3, 4, 5],
     avgRating: 0,
+    image: "",
   },
   {
     id: 13,
@@ -91,5 +103,6 @@ export const menus = [
     ingredient: "Shrimp",
     rating: [2, 3, 4, 4],
     avgRating: 0,
+    image: "",
   },
 ];
