@@ -4,7 +4,7 @@ import { people } from "../demo_data/people";
 import { ingredients } from "../demo_data/ingredient";
 
 type Ingredient = {
-  id: number;
+  ingid: number;
   name: string;
   isClicked: boolean;
 };
@@ -31,7 +31,7 @@ export const useGenerateMenu = () => {
 
   const [IngredientData, setIngredientData] = useState<Ingredient[]>([
     {
-      id: 0,
+      ingid: 0,
       name: "",
       isClicked: false,
     },
@@ -77,6 +77,7 @@ export const useGenerateMenu = () => {
       return {
         personid: person.id,
         name: person.name,
+        isClicked: false,
       };
     });
     setPeopleData(peopleDataCopy);
@@ -111,7 +112,6 @@ export const useGenerateMenu = () => {
             isClicked: !ing.isClicked,
           };
         }
-
         return ing;
       });
     });
@@ -126,7 +126,6 @@ export const useGenerateMenu = () => {
             isClicked: !person.isClicked,
           };
         }
-
         return person;
       });
     });
