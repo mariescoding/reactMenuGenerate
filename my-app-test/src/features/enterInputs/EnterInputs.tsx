@@ -13,8 +13,9 @@ export const EnterInputs = () => {
   const {
     personChipClick,
     ingChipClick,
-    ingIsClicked,
-    personIsClicked,
+    IngredientData,
+    PeopleData,
+    MenuData,
     generateMenu,
   } = useGenerateMenu();
 

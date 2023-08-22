@@ -19,7 +19,7 @@ type Menu = {
   name: string;
   ingredient: string;
   image: string;
-  rating: [];
+  rating: number[];
   avgRating: number;
 };
 
@@ -60,15 +60,38 @@ export const useGenerateMenu = () => {
   // set data to states above
 
   function setIngredient() {
-    setIngredientData();
+    const ingDataCopy = ingredients.map((ingredient) => {
+      return {
+        id: ingredient.id,
+        name: ingredient.name,
+        isClicked: ingredient.isClicked,
+      };
+    });
+    setIngredientData(ingDataCopy);
   }
 
   function setPeople() {
-    setPeopleData();
+    const peopleDataCopy = people.map((person) => {
+      return {
+        personid: person.id,
+        name: person.name,
+      };
+    });
+    setPeopleData(peopleDataCopy);
   }
 
   function setMenu() {
-    setMenuData();
+    const menuDataCopy = menus.map((menu) => {
+      return {
+        menuid: menu.id,
+        name: menu.name,
+        ingredient: menu.ingredient,
+        image: menu.image,
+        rating: menu.rating,
+        avgRating: menu.avgRating,
+      };
+    });
+    setMenuData(menuDataCopy);
   }
 
   setIngredient();
@@ -143,8 +166,9 @@ export const useGenerateMenu = () => {
   return {
     ingChipClick,
     personChipClick,
-    ingIsClicked,
-    personIsClicked,
+    IngredientData,
+    PeopleData,
+    MenuData,
     generateMenu,
   };
 };
