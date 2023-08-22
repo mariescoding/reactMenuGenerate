@@ -105,8 +105,8 @@ export const useGenerateMenu = () => {
 
   function ingChipClick(id: number) {
     setIngredientData((prevValues) => {
-      return prevValues.map((ing, i) => {
-        if (i === id) {
+      return prevValues.map((ing) => {
+        if (ing.ingid === id) {
           return {
             ...ing,
             isClicked: !ing.isClicked,
@@ -119,8 +119,8 @@ export const useGenerateMenu = () => {
 
   function personChipClick(id: number) {
     setPeopleData((prevValues) => {
-      return prevValues.map((person, i) => {
-        if (i === id) {
+      return prevValues.map((person) => {
+        if (person.personid === id) {
           return {
             ...person,
             isClicked: !person.isClicked,
