@@ -148,16 +148,17 @@ export const useGenerateMenu = () => {
 
       // check if ingredient of menu is clicked
 
-      if (
-        IngredientData.some((ingredient) => {
-          return ingredient.name === menu.ingredient && ingredient.isClicked;
-        })
-      ) {
+      const haveIngredient = IngredientData.some((ingredient) => {
+        return ingredient.name === menu.ingredient && ingredient.isClicked;
+      });
+
+      if (haveIngredient) {
         return {
           ...menu,
           avgRating: calcAvgRating(),
         };
       }
+
       return menu;
     });
 
