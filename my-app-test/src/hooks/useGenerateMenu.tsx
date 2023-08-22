@@ -4,22 +4,63 @@ import { people } from "../demo_data/people";
 import { ingredients } from "../demo_data/ingredient";
 
 type Ingredient = {
-  name: string;
-  isClicked: boolean;
+  obj: {
+    id: number;
+    name: string;
+    isClicked: boolean;
+  };
 };
 
-export const useGenerateMenu = () => {
-  const [ingIsClicked, setIngIsClicked] = useState<Ingredient[]>([
-    { name: "Chicken", isClicked: false },
-    { name: "Pork", isClicked: false },
-    { name: "Beef", isClicked: false },
-    { name: "Salmon", isClicked: false },
-    { name: "Shrimp", isClicked: false },
-  ]);
+// get mock data and put it into the state below
 
-  const [personIsClicked, setPersonIsClicked] = useState<boolean[]>(
-    Array(4).fill(false)
-  );
+export const useGenerateMenu = () => {
+  // ingredient state :
+
+  const [IngredientData, setIngredientData] = useState<Ingredient[]>({
+    ingid: {
+      name: "",
+      isClicked: false,
+    },
+  });
+
+  // person state:
+  const [PeopleData, setPeopleData] = useState({
+    personid: {
+      name: "",
+    },
+  });
+
+  // menu state:
+
+  const [MenuData, setMenuData] = useState({
+    menuid: {
+      name: "",
+      ingredient: "",
+      image: "",
+      rating: [],
+      avgRating: 0,
+    },
+  });
+
+  // set data to states above
+
+  function setIngredient() {
+    setIngredientData();
+  }
+
+  function setPeople() {
+    setPeopleData();
+  }
+
+  function setMenu() {
+    setMenuData();
+  }
+
+  setIngredient();
+  setPeople();
+  setMenu();
+
+  //eventlisteners for chips
 
   function ingChipClick(id: number) {
     setIngIsClicked((prevValues) => {
@@ -47,6 +88,8 @@ export const useGenerateMenu = () => {
       });
     });
   }
+
+  // choose top menu
 
   function generateMenu() {
     const menusArray = menus.map((menu) => {
@@ -80,9 +123,6 @@ export const useGenerateMenu = () => {
       if (a.avgRating > b.avgRating) return -1;
       return 0;
     });
-
-    console.log(sortedMenuArray);
-    console.log(sortedMenuArray[0]);
   }
 
   return {
