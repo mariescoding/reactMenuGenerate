@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import React from "react";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
@@ -18,7 +16,7 @@ export const IngredientList: React.FC<Props> = ({ ingChipClick, ingData }) => {
     <>
       {ingData.map((ingredient) => {
         return (
-          <Grid item xs={6}>
+          <Grid item xs={4}>
             <Chip
               label={ingredient.name}
               variant="outlined"

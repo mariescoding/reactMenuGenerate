@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { menus } from "/Users/mariemuramatsu/Personal/React/my-app-test/src/demo_data/menu.js";
 import { people } from "../demo_data/people";
 import { ingredients } from "../demo_data/ingredient";
@@ -58,7 +59,7 @@ export const useGenerateMenu = () => {
   function setIngredient() {
     const ingDataCopy = ingredients.map((ingredient) => {
       return {
-        id: ingredient.id,
+        ingid: ingredient.id,
         name: ingredient.name,
         isClicked: ingredient.isClicked,
       };
@@ -91,9 +92,11 @@ export const useGenerateMenu = () => {
     setMenuData(menuDataCopy);
   }
 
-  setIngredient();
-  setPeople();
-  setMenu();
+  useEffect(() => {
+    setIngredient();
+    setPeople();
+    setMenu();
+  }, []);
 
   //eventlisteners for chips
 
@@ -163,6 +166,8 @@ export const useGenerateMenu = () => {
       if (a.avgRating > b.avgRating) return -1;
       return 0;
     });
+
+    console.log(sortedMenuArray);
   }
 
   return {
