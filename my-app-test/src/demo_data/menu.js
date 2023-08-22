@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-export const menus = {
-  1: {
+export const menus = [
+  {
     id: 1,
     name: "Dry Curry",
     ingredient: "Pork",
@@ -10,7 +10,7 @@ export const menus = {
     image: "",
   },
 
-  2: {
+  {
     id: 2,
     name: "生姜焼き",
     ingredient: "Pork",
@@ -19,7 +19,7 @@ export const menus = {
     image: "",
   },
 
-  3: {
+  {
     id: 3,
     name: "肉じゃが",
     ingredient: "Pork",
@@ -28,7 +28,7 @@ export const menus = {
     image: "",
   },
 
-  4: {
+  {
     id: 4,
     name: "春巻き",
     ingredient: "Chicken",
@@ -37,7 +37,7 @@ export const menus = {
     image: "",
   },
 
-  5: {
+  {
     id: 5,
     name: "チキン南蛮",
     ingredient: "Chicken",
@@ -46,7 +46,7 @@ export const menus = {
     image: "",
   },
 
-  6: {
+  {
     id: 6,
     name: "油淋鶏",
     ingredient: "Chicken",
@@ -55,7 +55,7 @@ export const menus = {
     image: "",
   },
 
-  7: {
+  {
     id: 7,
     name: "Beef Stew",
     ingredient: "Beef",
@@ -64,7 +64,7 @@ export const menus = {
     image: "",
   },
 
-  8: {
+  {
     id: 8,
     name: "Steak",
     ingredient: "Beef",
@@ -73,7 +73,7 @@ export const menus = {
     image: "",
   },
 
-  9: {
+  {
     id: 9,
     name: "牛丼",
     ingredient: "Beef",
@@ -82,7 +82,7 @@ export const menus = {
     image: "",
   },
 
-  10: {
+  {
     id: 10,
     name: "鮭定食",
     ingredient: "Salmon",
@@ -91,7 +91,7 @@ export const menus = {
     image: "",
   },
 
-  11: {
+  {
     id: 11,
     name: "Poke Bowl",
     ingredient: "Salmon",
@@ -100,7 +100,7 @@ export const menus = {
     image: "",
   },
 
-  12: {
+  {
     id: 12,
     name: "Ahijo",
     ingredient: "Shrimp",
@@ -109,7 +109,7 @@ export const menus = {
     image: "",
   },
 
-  13: {
+  {
     id: 13,
     name: "エビフライ",
     ingredient: "Shrimp",
@@ -117,4 +117,4 @@ export const menus = {
     avgRating: 0,
     image: "",
   },
-};
+];
