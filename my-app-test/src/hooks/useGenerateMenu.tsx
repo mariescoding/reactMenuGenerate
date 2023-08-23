@@ -47,6 +47,7 @@ export const useGenerateMenu = () => {
 
   const [MenuData, setMenuData] = useState<Menu[]>([]);
 
+  const [todayMenuData, setTodayMenuData] = useState<TodayMenu>({
     id: 0,
     name: "string",
     ingredient: "string",
