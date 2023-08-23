@@ -38,14 +38,14 @@ type TodayMenu = {
 export const useGenerateMenu = () => {
   // ingredient state :
 
-  const [IngredientData, setIngredientData] = useState<Ingredient[]>([]);
+  const [ingredientData, setIngredientData] = useState<Ingredient[]>([]);
 
   // person state:
-  const [PeopleData, setPeopleData] = useState<People[]>([]);
+  const [peopleData, setPeopleData] = useState<People[]>([]);
 
   // menu state:
 
-  const [MenuData, setMenuData] = useState<Menu[]>([]);
+  const [menuData, setMenuData] = useState<Menu[]>([]);
 
   const [todayMenuData, setTodayMenuData] = useState<TodayMenu>({
     id: 0,
@@ -157,7 +157,7 @@ export const useGenerateMenu = () => {
 
       function calcAvgRating() {
         const ratingOfPresent: Array<number> = [];
-        PeopleData.forEach((person, i) => {
+        peopleData.forEach((person, i) => {
           if (person.isClicked) {
             ratingOfPresent.push(menu.rating[i]);
           }
@@ -169,7 +169,7 @@ export const useGenerateMenu = () => {
 
       // check if ingredient of menu is clicked
 
-      const haveIngredient = IngredientData.some((ingredient) => {
+      const haveIngredient = ingredientData.some((ingredient) => {
         return ingredient.name === menu.ingredient && ingredient.isClicked;
       });
 
@@ -197,9 +197,9 @@ export const useGenerateMenu = () => {
   return {
     ingChipClick,
     personChipClick,
-    IngredientData,
-    PeopleData,
-    MenuData,
+    ingredientData,
+    peopleData,
+    menuData,
     generateMenu,
     todayMenuData,
   };

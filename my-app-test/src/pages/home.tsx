@@ -11,8 +11,8 @@ export const Home = () => {
   const {
     personChipClick,
     ingChipClick,
-    IngredientData,
-    PeopleData,
+    ingredientData,
+    peopleData,
     generateMenu,
     todayMenuData,
   } = useGenerateMenu();
@@ -29,8 +29,8 @@ export const Home = () => {
           todayMenu={todayMenuData}
           personClick={personChipClick}
           ingClick={ingChipClick}
-          ingData={IngredientData}
-          peopleData={PeopleData}
+          ingData={ingredientData}
+          peopleData={peopleData}
           generateMenu={generateMenu}
         />
       </Container>
