@@ -26,7 +26,7 @@ type Menu = {
 };
 
 type TodayMenu = {
-  menuid: number;
+  id: number;
   name: string;
   ingredient: string;
   image: string;
@@ -47,7 +47,13 @@ export const useGenerateMenu = () => {
 
   const [MenuData, setMenuData] = useState<Menu[]>([]);
 
-  const [todayMenuData, setTodayMenuData] = useState<TodayMenu>();
+    id: 0,
+    name: "string",
+    ingredient: "string",
+    image: "strin",
+    rating: [],
+    //avgRating: 0,
+  });
 
   // set data to states above
 
@@ -96,13 +102,14 @@ export const useGenerateMenu = () => {
     avgRating: number;
   }) {
     const todaymenuDataCopy = {
-      menuid: topMenu.id,
+      id: topMenu.id,
       name: topMenu.name,
       ingredient: topMenu.ingredient,
       image: topMenu.image,
       rating: topMenu.rating,
     };
     setTodayMenuData(todaymenuDataCopy);
+    console.log(todaymenuDataCopy);
   }
 
   useEffect(() => {
@@ -184,10 +191,8 @@ export const useGenerateMenu = () => {
     const topMenu = sortedMenuArray[0];
 
     SetTodayMenu(topMenu);
-    console.log(topMenu);
   }
-  console.log(todayMenuData);
-  console.debug("hr¥ere");
+
   return {
     ingChipClick,
     personChipClick,
@@ -195,5 +200,6 @@ export const useGenerateMenu = () => {
     PeopleData,
     MenuData,
     generateMenu,
+    todayMenuData,
   };
 };
