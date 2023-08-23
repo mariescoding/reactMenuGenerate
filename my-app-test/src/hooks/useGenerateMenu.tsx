@@ -25,34 +25,29 @@ type Menu = {
   avgRating: number;
 };
 
+type TodayMenu = {
+  menuid: number;
+  name: string;
+  ingredient: string;
+  image: string;
+  rating: number[];
+};
+
 // get mock data and put it into the state below
 
 export const useGenerateMenu = () => {
   // ingredient state :
 
-  const [IngredientData, setIngredientData] = useState<Ingredient[]>([
-    {
-      ingid: 0,
-      name: "",
-      isClicked: false,
-    },
-  ]);
+  const [IngredientData, setIngredientData] = useState<Ingredient[]>([]);
 
   // person state:
   const [PeopleData, setPeopleData] = useState<People[]>([]);
 
   // menu state:
 
-  const [MenuData, setMenuData] = useState<Menu[]>([
-    {
-      menuid: 0,
-      name: "",
-      ingredient: "",
-      image: "",
-      rating: [],
-      avgRating: 0,
-    },
-  ]);
+  const [MenuData, setMenuData] = useState<Menu[]>([]);
+
+  const [todayMenuData, setTodayMenuData] = useState<TodayMenu>();
 
   // set data to states above
 
@@ -90,6 +85,24 @@ export const useGenerateMenu = () => {
       };
     });
     setMenuData(menuDataCopy);
+  }
+
+  function SetTodayMenu(topMenu: {
+    id: number;
+    name: string;
+    ingredient: string;
+    image: string;
+    rating: number[];
+    avgRating: number;
+  }) {
+    const todaymenuDataCopy = {
+      menuid: topMenu.id,
+      name: topMenu.name,
+      ingredient: topMenu.ingredient,
+      image: topMenu.image,
+      rating: topMenu.rating,
+    };
+    setTodayMenuData(todaymenuDataCopy);
   }
 
   useEffect(() => {
@@ -168,9 +181,13 @@ export const useGenerateMenu = () => {
       return 0;
     });
 
-    console.log(sortedMenuArray);
-  }
+    const topMenu = sortedMenuArray[0];
 
+    SetTodayMenu(topMenu);
+    console.log(topMenu);
+  }
+  console.log(todayMenuData);
+  console.debug("hr¥ere");
   return {
     ingChipClick,
     personChipClick,
