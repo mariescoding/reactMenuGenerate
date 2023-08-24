@@ -20,6 +20,14 @@ type Props = {
     name: string;
     isClicked: boolean;
   }[];
+  menuData: {
+    menuid: number;
+    name: string;
+    ingredient: string;
+    image: string;
+    rating: number[];
+    avgRating: number;
+  }[];
   generateMenu: () => void;
   todayMenuData: {
     id: number;
@@ -41,6 +49,7 @@ export const Home: React.FC<Props> = ({
   generateMenu,
   isBrowseClicked,
   isHomeClicked,
+  menuData,
 }) => {
   return (
     <Box>
@@ -56,6 +65,7 @@ export const Home: React.FC<Props> = ({
           ingData={ingredientData}
           peopleData={peopleData}
           generateMenu={generateMenu}
+          menuData={menuData}
         />
       </Container>
     </Box>

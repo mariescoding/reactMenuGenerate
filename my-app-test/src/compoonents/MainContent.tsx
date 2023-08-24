@@ -19,6 +19,14 @@ type Props = {
     name: string;
     isClicked: boolean;
   }[];
+  menuData: {
+    menuid: number;
+    name: string;
+    ingredient: string;
+    image: string;
+    rating: number[];
+    avgRating: number;
+  }[];
   generateMenu: () => void;
   todayMenu: {
     id: number;
@@ -40,11 +48,12 @@ export const MainContent: React.FC<Props> = ({
   generateMenu,
   isHomeClicked,
   isBrowseClicked,
+  menuData,
 }) => {
   return (
     <>
       {isBrowseClicked ? (
-        <BrowseAllMenu title="All Menus" />
+        <BrowseAllMenu title="All Menus" menuData={menuData} />
       ) : isHomeClicked && isMenuChosen ? (
         <DisplayTodayMenu todayMenu={todayMenu} title="Today's Menu" />
       ) : (

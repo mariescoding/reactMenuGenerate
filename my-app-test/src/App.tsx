@@ -19,6 +19,7 @@ function App() {
     peopleData,
     generateMenu,
     todayMenuData,
+    menuData,
   } = useGenerateMenu();
   return (
     <>
@@ -34,6 +35,7 @@ function App() {
         ingredientData={ingredientData}
         peopleData={peopleData}
         generateMenu={generateMenu}
+        menuData={menuData}
       />
     </>
   );
