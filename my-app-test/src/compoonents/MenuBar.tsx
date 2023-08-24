@@ -4,9 +4,13 @@ import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import { HomeOutlined, MenuBookOutlined } from "@mui/icons-material";
-import { NavLink } from "react-router-dom";
 
-export const MenuBar = () => {
+type Props = {
+  goBrowse: () => void;
+  goHome: () => void;
+};
+
+export const MenuBar: React.FC<Props> = ({ goHome, goBrowse }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -20,23 +24,21 @@ export const MenuBar = () => {
           <IconButton
             size="medium"
             edge="start"
-            color="secondary"
+            color="inherit"
             sx={{ mr: 2 }}
+            onClick={goHome}
           >
-            <NavLink to="/">
-              <HomeOutlined />
-            </NavLink>
+            <HomeOutlined />
           </IconButton>
 
           <IconButton
             size="medium"
             edge="start"
-            color="secondary"
+            color="inherit"
             sx={{ mr: 2 }}
+            onClick={goBrowse}
           >
-            <NavLink to="/browse">
-              <MenuBookOutlined />
-            </NavLink>
+            <MenuBookOutlined />
           </IconButton>
         </Toolbar>
       </AppBar>
