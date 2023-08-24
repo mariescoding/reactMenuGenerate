@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 
 import { EnterPeopleInfo } from "./components/EnterPeopleInfo";
 import { EnterIngredientInfo } from "./components/EnterIngredientInfo";
+import { Title } from "../../compoonents/Title";
 
 type Props = {
   onChooseClick: () => void;
@@ -21,6 +22,7 @@ type Props = {
     isClicked: boolean;
   }[];
   generateMenu: () => void;
+  title: string;
 };
 
 export const MenuDetailInput: React.FC<Props> = ({
@@ -30,25 +32,31 @@ export const MenuDetailInput: React.FC<Props> = ({
   ingData,
   peopleData,
   generateMenu,
+  title,
 }) => {
   return (
-    <Paper elevation={5} sx={{ height: "350px;" }}>
-      <Grid container spacing={2} sx={{ p: 2 }}>
-        <EnterPeopleInfo onChipClick={personClick} peopleData={peopleData} />
-        <EnterIngredientInfo onChipClick={ingClick} ingData={ingData} />
-      </Grid>
-      <Box sx={{ m: 5 }}>
-        <Button
-          variant="contained"
-          sx={{ borderRadius: 5 }}
-          onClick={() => {
-            generateMenu();
-            onChooseClick();
-          }}
-        >
-          Choose
-        </Button>
+    <>
+      <Box sx={{ m: 7, fontWeight: "bold" }}>
+        <Title label={title} />
       </Box>
-    </Paper>
+      <Paper elevation={5} sx={{ height: "350px;" }}>
+        <Grid container spacing={2} sx={{ p: 2 }}>
+          <EnterPeopleInfo onChipClick={personClick} peopleData={peopleData} />
+          <EnterIngredientInfo onChipClick={ingClick} ingData={ingData} />
+        </Grid>
+        <Box sx={{ m: 5 }}>
+          <Button
+            variant="contained"
+            sx={{ borderRadius: 5 }}
+            onClick={() => {
+              generateMenu();
+              onChooseClick();
+            }}
+          >
+            Choose
+          </Button>
+        </Box>
+      </Paper>
+    </>
   );
 };
