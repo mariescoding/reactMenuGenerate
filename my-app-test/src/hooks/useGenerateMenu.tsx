@@ -25,34 +25,36 @@ type Menu = {
   avgRating: number;
 };
 
+type TodayMenu = {
+  id: number;
+  name: string;
+  ingredient: string;
+  image: string;
+  rating: number[];
+};
+
 // get mock data and put it into the state below
 
 export const useGenerateMenu = () => {
   // ingredient state :
 
-  const [IngredientData, setIngredientData] = useState<Ingredient[]>([
-    {
-      ingid: 0,
-      name: "",
-      isClicked: false,
-    },
-  ]);
+  const [ingredientData, setIngredientData] = useState<Ingredient[]>([]);
 
   // person state:
-  const [PeopleData, setPeopleData] = useState<People[]>([]);
+  const [peopleData, setPeopleData] = useState<People[]>([]);
 
   // menu state:
 
-  const [MenuData, setMenuData] = useState<Menu[]>([
-    {
-      menuid: 0,
-      name: "",
-      ingredient: "",
-      image: "",
-      rating: [],
-      avgRating: 0,
-    },
-  ]);
+  const [menuData, setMenuData] = useState<Menu[]>([]);
+
+  const [todayMenuData, setTodayMenuData] = useState<TodayMenu>({
+    id: 0,
+    name: "string",
+    ingredient: "string",
+    image: "strin",
+    rating: [],
+    //avgRating: 0,
+  });
 
   // set data to states above
 
@@ -90,6 +92,25 @@ export const useGenerateMenu = () => {
       };
     });
     setMenuData(menuDataCopy);
+  }
+
+  function SetTodayMenu(topMenu: {
+    id: number;
+    name: string;
+    ingredient: string;
+    image: string;
+    rating: number[];
+    avgRating: number;
+  }) {
+    const todaymenuDataCopy = {
+      id: topMenu.id,
+      name: topMenu.name,
+      ingredient: topMenu.ingredient,
+      image: topMenu.image,
+      rating: topMenu.rating,
+    };
+    setTodayMenuData(todaymenuDataCopy);
+    console.log(todaymenuDataCopy);
   }
 
   useEffect(() => {
@@ -136,7 +157,7 @@ export const useGenerateMenu = () => {
 
       function calcAvgRating() {
         const ratingOfPresent: Array<number> = [];
-        PeopleData.forEach((person, i) => {
+        peopleData.forEach((person, i) => {
           if (person.isClicked) {
             ratingOfPresent.push(menu.rating[i]);
           }
@@ -148,7 +169,7 @@ export const useGenerateMenu = () => {
 
       // check if ingredient of menu is clicked
 
-      const haveIngredient = IngredientData.some((ingredient) => {
+      const haveIngredient = ingredientData.some((ingredient) => {
         return ingredient.name === menu.ingredient && ingredient.isClicked;
       });
 
@@ -168,15 +189,18 @@ export const useGenerateMenu = () => {
       return 0;
     });
 
-    console.log(sortedMenuArray);
+    const topMenu = sortedMenuArray[0];
+
+    SetTodayMenu(topMenu);
   }
 
   return {
     ingChipClick,
     personChipClick,
-    IngredientData,
-    PeopleData,
-    MenuData,
+    ingredientData,
+    peopleData,
+    menuData,
     generateMenu,
+    todayMenuData,
   };
 };
