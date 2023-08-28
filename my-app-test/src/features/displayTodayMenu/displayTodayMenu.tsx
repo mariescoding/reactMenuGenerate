@@ -28,9 +28,12 @@ export const DisplayTodayMenu: React.FC<Props> = ({ todayMenu, title }) => {
       <Paper elevation={3} sx={{ height: "380px;" }}>
         <Grid container spacing={2} sx={{ p: 3 }}>
           <Grid item md={6}>
-            <Box sx={{ width: "90%", height: "80%", mt: 3, ml: 1, mb: 3 }}>
-              <img alt="foodImage" src={todayMenu.image}></img>
-            </Box>
+            <Box
+              component="img"
+              sx={{ width: "80%", height: "250px", mt: 3, ml: 1, mb: 3 }}
+              alt="foodImage"
+              src={todayMenu.image}
+            ></Box>
           </Grid>
           <Grid item md={6}>
             <Box sx={{ pb: 3 }}>
