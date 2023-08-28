@@ -15,7 +15,7 @@ type Props2 = {
 };
 
 export const MenuGallery: React.FC<Props2> = ({ menuData }) => {
-  const { anchorEl, handleClick, handleClose, open, id, openedPopoverId } =
+  const { anchorEl, handleClick, handleClose, open, id, menuPopover } =
     usePopover();
   return (
     <Grid container spacing={5} sx={{ mt: 1 }}>
@@ -26,7 +26,7 @@ export const MenuGallery: React.FC<Props2> = ({ menuData }) => {
         onClose={handleClose}
         open={open}
         id={id}
-        openedPopoverId={openedPopoverId}
+        popoverMenu={menuPopover}
       />
     </Grid>
   );

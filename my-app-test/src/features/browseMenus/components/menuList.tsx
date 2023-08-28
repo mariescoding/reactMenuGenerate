@@ -8,11 +8,28 @@ import { MenuPopover } from "./popOver";
 
 type Props = {
   anchorEl: HTMLDivElement | null;
-  onClick: (id: number, event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick: (
+    menu: {
+      menuid: number;
+      name: string;
+      ingredient: string;
+      image: string;
+      rating: number[];
+      avgRating: number;
+    },
+    event: React.MouseEvent<HTMLDivElement>
+  ) => void;
   onClose: () => void;
   open: boolean;
   id: string | undefined;
-  openedPopoverId: number | undefined;
+  popoverMenu: {
+    menuid: number;
+    name: string;
+    ingredient: string;
+    image: string;
+    rating: number[];
+    avgRating: number;
+  };
   menuData: {
     menuid: number;
     name: string;
@@ -30,7 +47,7 @@ export const MenuList: React.FC<Props> = ({
   onClose,
   open,
   id,
-  openedPopoverId,
+  popoverMenu,
 }) => {
   return (
     <>
@@ -38,7 +55,7 @@ export const MenuList: React.FC<Props> = ({
         return (
           <Grid item xs={6} sx={{ p: 3 }}>
             <Paper
-              onClick={(e) => onClick(menu.menuid, e)}
+              onClick={(e) => onClick(menu, e)}
               elevation={3}
               sx={{ Width: "250px", Height: "250px" }}
             >
@@ -54,21 +71,25 @@ export const MenuList: React.FC<Props> = ({
                 <Typography variant="h6">{menu.name}</Typography>
               </Box>
             </Paper>
-            <Popover
-              id={id}
-              open={menu.menuid === openedPopoverId}
-              anchorEl={anchorEl}
-              onClose={onClose}
-              anchorOrigin={{
-                vertical: "center",
-                horizontal: "center",
-              }}
-            >
-              <MenuPopover ingName={menu.ingredient} rating={menu.rating} />
-            </Popover>
           </Grid>
         );
       })}
+
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={onClose}
+        anchorOrigin={{
+          vertical: "center",
+          horizontal: "center",
+        }}
+      >
+        <MenuPopover
+          ingName={popoverMenu.ingredient}
+          rating={popoverMenu.rating}
+        />
+      </Popover>
     </>
   );
 };
