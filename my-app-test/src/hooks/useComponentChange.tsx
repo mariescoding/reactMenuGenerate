@@ -2,11 +2,35 @@ import { useState } from "react";
 
 export const useComponentChange = () => {
   const [isMenuChosen, setIsMenuChosen] = useState(false);
+  const [isBrowseBtnClicked, setIsBrowseBtnClicked] = useState(false);
+  const [isHomeBtnClicked, setIsHomeBtnClicked] = useState(false);
 
   function clickChoose() {
     setIsMenuChosen(!isMenuChosen);
-    console.log(isMenuChosen);
+    setIsBrowseBtnClicked(false);
+    setIsHomeBtnClicked(true);
   }
 
-  return { clickChoose, isMenuChosen };
+  function goBrowsePage() {
+    setIsBrowseBtnClicked(true);
+    setIsHomeBtnClicked(false);
+  }
+
+  function goHomePage() {
+    setIsBrowseBtnClicked(false);
+    setIsHomeBtnClicked(true);
+  }
+
+  console.log(isMenuChosen);
+  console.log(isBrowseBtnClicked);
+  console.log(isHomeBtnClicked);
+
+  return {
+    clickChoose,
+    isMenuChosen,
+    goBrowsePage,
+    goHomePage,
+    isBrowseBtnClicked,
+    isHomeBtnClicked,
+  };
 };

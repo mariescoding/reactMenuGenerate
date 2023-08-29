@@ -1,8 +1,11 @@
 import { MenuDetailInput } from "../features/enterInputs/EnterInputs";
 import { DisplayTodayMenu } from "../features/displayTodayMenu/displayTodayMenu";
+import { BrowseAllMenu } from "../features/browseMenus/browseAll";
 
 type Props = {
   isMenuChosen: boolean;
+  isBrowseClicked: boolean;
+  isHomeClicked: boolean;
   onChooseClick: () => void;
   personClick: (id: number) => void;
   ingClick: (id: number) => void;
@@ -15,6 +18,14 @@ type Props = {
     personid: number;
     name: string;
     isClicked: boolean;
+  }[];
+  menuData: {
+    menuid: number;
+    name: string;
+    ingredient: string;
+    image: string;
+    rating: number[];
+    avgRating: number;
   }[];
   generateMenu: () => void;
   todayMenu: {
@@ -35,17 +46,27 @@ export const MainContent: React.FC<Props> = ({
   ingData,
   peopleData,
   generateMenu,
+  isHomeClicked,
+  isBrowseClicked,
+  menuData,
 }) => {
-  return isMenuChosen ? (
-    <DisplayTodayMenu todayMenu={todayMenu} />
-  ) : (
-    <MenuDetailInput
-      onChooseClick={onChooseClick}
-      personClick={personClick}
-      ingClick={ingClick}
-      ingData={ingData}
-      peopleData={peopleData}
-      generateMenu={generateMenu}
-    />
+  return (
+    <>
+      {isBrowseClicked ? (
+        <BrowseAllMenu title="All Menus" menuData={menuData} />
+      ) : isHomeClicked && isMenuChosen ? (
+        <DisplayTodayMenu todayMenu={todayMenu} title="Today's Menu" />
+      ) : (
+        <MenuDetailInput
+          onChooseClick={onChooseClick}
+          personClick={personClick}
+          ingClick={ingClick}
+          ingData={ingData}
+          peopleData={peopleData}
+          generateMenu={generateMenu}
+          title="Choose Today's menu"
+        />
+      )}
+    </>
   );
 };
